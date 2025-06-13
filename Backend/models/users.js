@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     firstName: 'String',
@@ -16,6 +18,7 @@ UserSchema.methods.getJWT = function () {
     throw new Error('JWT_KEY is not defined in the environment variables.');
   }
 
+  console.log('check key',process.env.JWT_KEY)
   const token = jwt.sign(
     { _id: user._id }, 
     process.env.JWT_KEY, 
@@ -27,6 +30,8 @@ UserSchema.methods.getJWT = function () {
 
 UserSchema.methods.validateUserInputPassword = async function (passwordInputByUser) {
   const user = this;
+  console.log('check password',passwordInputByUser)
+    console.log('check key',process.env.JWT_KEY)
   const isValidPassword = bcrypt.compareSync(passwordInputByUser, user?.password);
   return isValidPassword;
 };

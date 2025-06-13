@@ -1,13 +1,14 @@
 const express = require("express");
+require('dotenv').config()
 const { main } = require("./models/index");
 const productRoute = require("./router/product");
 const storeRoute = require("./router/store");
 const purchaseRoute = require("./router/purchase");
 const salesRoute = require("./router/sales");
+const routes = require("./router");
 const cors = require("cors");
 const User = require("./models/users");
 const Product = require("./models/Product");
-
 
 const app = express();
 const PORT = 8080;
@@ -15,6 +16,7 @@ main();
 app.use(express.json());
 app.use(cors());
 
+app.use("/api", routes);
 // Store API
 app.use("/api/store", storeRoute);
 
@@ -52,31 +54,11 @@ app.post("/api/login", async (req, res) => {
 });
 
 // Getting User Details of login user
-app.get("/api/login", (req, res) => {
-  res.send(userAuthCheck);
-});
+
 // ------------------------------------
 
 // Registration API
-app.post("/api/register", (req, res) => {
-  let registerUser = new User({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-    phoneNumber: req.body.phoneNumber,
-    imageUrl: req.body.imageUrl,
-  });
 
-  registerUser
-    .save()
-    .then((result) => {
-      res.status(200).send(result);
-      alert("Signup Successfull");
-    })
-    .catch((err) => console.log("Signup: ", err));
-  console.log("request: ", req.body);
-});
 
 
 app.get("/testget", async (req,res)=>{
