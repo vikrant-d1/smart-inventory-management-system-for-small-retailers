@@ -1,13 +1,10 @@
-# React-Inventory-Management-System
-Inventory Management System Built with React JS, Node JS, Express JS, MongoDB and Tailwind CSS.
+# Smart Inventory Management System for Small Retailers
+
+A complete web-based inventory management solution designed for small retail businesses to manage stock, sales, and purchases efficiently. Built using Node.js, Express, MongoDB, and React.js, this system simplifies day-to-day inventory operations for store owners.
 
 ### Show Some Support!  
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/vikrant.verma)
 
-
-# Smart Inventory Management System for Small Retailers
-
-A complete web-based inventory management solution designed for small retail businesses to manage stock, sales, and purchases efficiently. Built using Node.js, Express, MongoDB, and React.js, this system simplifies day-to-day inventory operations for store owners.
 
 ## 🧠 Project Objective
 
