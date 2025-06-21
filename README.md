@@ -3,10 +3,9 @@
 A complete web-based inventory management solution designed for small retail businesses to manage stock, sales, and purchases efficiently. Built using Node.js, Express, MongoDB, and React.js, this system simplifies day-to-day inventory operations for store owners.
 
 ### Show Some Support!  
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/vikrant.verma)
 
 <a href="https://www.buymeacoffee.com/vikrant.verma" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 45px; width: 162px;" >
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 70px; width: 300px;" >
 </a>
 
 
@@ -77,20 +76,3 @@ npm install
 npm start
 ```
 
-###  4. Folder Structure
-```javascript
-smart-inventory-management-system-for-small-retailers/
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   └── server.js
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── redux/
-│   │   └── App.js
-└── README.md
-```
