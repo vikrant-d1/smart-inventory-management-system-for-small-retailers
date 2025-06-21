@@ -5,6 +5,10 @@ A complete web-based inventory management solution designed for small retail bus
 ### Show Some Support!  
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/vikrant.verma)
 
+<a href="https://www.buymeacoffee.com/vikrant.verma" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 45px; width: 162px;" >
+</a>
+
 
 ## 🧠 Project Objective
 
@@ -75,7 +79,7 @@ npm start
 
 ###  4. Folder Structure
 ```javascript
-smart-inventory-management-system/
+smart-inventory-management-system-for-small-retailers/
 ├── backend/
 │   ├── controllers/
 │   ├── models/
