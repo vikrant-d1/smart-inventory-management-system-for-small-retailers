@@ -44,12 +44,6 @@ This system aims to:
 
 ---
 
-## 🖼️ Screenshots
-
-> Add screenshots or screen recordings here (Login page, Dashboard, Product Listing, etc.)
-
----
-
 ## 🔧 Setup Instructions
 
 ### 1. Clone the repository
@@ -68,17 +62,22 @@ npm install
 
 Create a .env file inside the backend folder:
 
+```javascript
 PORT=8080
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
+```
 
 
 ###  3. Setup frontend
+```javascript
 cd ../frontend
 npm install
 npm start
+```
 
 ###  4. Folder Structure
+```javascript
 smart-inventory-management-system/
 ├── backend/
 │   ├── controllers/
@@ -93,4 +92,4 @@ smart-inventory-management-system/
 │   │   ├── redux/
 │   │   └── App.js
 └── README.md
-
+```
