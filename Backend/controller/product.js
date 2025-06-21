@@ -5,6 +5,7 @@ const Sales = require("../models/sales");
 // Add Post
 const addProduct = async (inputData) => {
   try{
+
   const addProduct = new Product({
     userID: inputData.userId,
     name: inputData.name,
