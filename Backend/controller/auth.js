@@ -54,14 +54,17 @@ const registerUser = async (userData) => {
 
    const getUser = async (email) => {
     try{
-      const user = await User.findOne({email:email},{password:0});
-      return user;
+      if(email && email!=''){
+        const user = await User.findOne({email:email},{password:0});
+        return user;
+      }else{
+         throw new Error('Email is not found.');
+      }
+      
     }catch(err){
       throw new Error(err);
     }
   }
-
-
 
     module.exports = {
     registerUser,
