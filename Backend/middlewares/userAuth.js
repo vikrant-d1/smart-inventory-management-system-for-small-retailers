@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const userService = require('../services/user/userService');
-const utils = require('../utils/utils');
+const User = require('../models/users');
+const { mongooseID } = require('../utils/utils');
 
 async function userAuth(req, res, next) {
   try {
@@ -13,12 +13,12 @@ async function userAuth(req, res, next) {
     const decodedToken = jwt.verify(token, process.env.JWT_KEY);
 
     // Validate and convert _id safely
-    const userId = utils.mongooseID(decodedToken?._id);
+    const userId = mongooseID(decodedToken?._id);
     if (!userId) {
       return res.status(400).json({ error: 'Invalid user ID in token' });
     }
 
-    const authUserData = await userService.getProfile({ _id: userId });
+    const authUserData = await User.find({ _id: userId });
 
     if (!authUserData || authUserData.deleted) {
       return res.status(404).json({ error: 'User not found.' });

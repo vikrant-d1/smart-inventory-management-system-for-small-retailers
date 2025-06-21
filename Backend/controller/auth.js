@@ -52,13 +52,19 @@ const registerUser = async (userData) => {
     }
   }
 
- const logout = async (res) => {
-   res.clearCookie('token');
-   res.status(200).json({ message: 'Logged out successfully' });
+   const getUser = async (email) => {
+    try{
+      const user = await User.findOne({email:email},{password:0});
+      return user;
+    }catch(err){
+      throw new Error(err);
     }
+  }
+
+
 
     module.exports = {
     registerUser,
     login,
-    logout,
+    getUser,
   }

@@ -3,24 +3,21 @@ const Purchase = require("../models/purchase");
 const Sales = require("../models/sales");
 
 // Add Post
-const addProduct = (req, res) => {
-  console.log("req: ", req.body.userId);
+const addProduct = async (inputData) => {
+  try{
   const addProduct = new Product({
-    userID: req.body.userId,
-    name: req.body.name,
-    manufacturer: req.body.manufacturer,
+    userID: inputData.userId,
+    name: inputData.name,
+    manufacturer: inputData.manufacturer,
     stock: 0,
-    description: req.body.description,
+    description: inputData.description,
   });
 
-  addProduct
-    .save()
-    .then((result) => {
-      res.status(200).send(result);
-    })
-    .catch((err) => {
-      res.status(402).send(err);
-    });
+  return await addProduct.save();
+  }
+  catch(err){
+    throw new Error(err.message)
+  }
 };
 
 // Get All Products

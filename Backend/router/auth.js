@@ -3,6 +3,7 @@ const express = require("express");
 const authRoute = express.Router();
 const authController = require("../controller/auth")
 const {sendSuccess, sendError} = require("../utils/response")
+const { userAuth }  = require('../middlewares/userAuth');
 
 authRoute.post("/register", (req, res) => {
   const {firstName, lastName, email,phoneNumber,password, imageUrl} = req.body;
@@ -13,7 +14,6 @@ authRoute.post("/register", (req, res) => {
      sendError(res,err,err?.message,400)
   })
 });
-
 
 authRoute.post("/login",(req, res) => {
   const { email, password} = req.body;
@@ -30,6 +30,21 @@ authRoute.post("/login",(req, res) => {
     sendError(res,err,err?.message,400)
   });
 });
+
+authRoute.post("/logout",userAuth,(req, res) => {
+   res.clearCookie('token');
+   res.status(200).json({ message: 'Logged out successfully' });
+});
+
+authRoute.get("/get-user",userAuth,(req, res) => {
+  let email = req.user[0].email;
+  return authController.getUser(email).then(resData=>{
+    sendSuccess(res,resData,"Login Successful",200);
+  }).catch(err=>{
+    sendError(res,err,err?.message,400)
+  });
+});
+
 
 module.exports = authRoute;
 
